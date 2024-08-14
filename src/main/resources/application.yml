@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://aws-challenge.c1uqem2s67ow.us-east-1.rds.amazonaws.com:3306/awschallenge
-    username: admin
-    password: Dadada1234
+    url: ${url_db}
+    username: ${username}
+    password: ${password}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

@@ -8,13 +8,10 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -26,5 +23,10 @@ public class UserController {
         User user = userRequestMapper.toUser(userRequest);
         userService.registerUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping()
+    public String healthCheck(){
+        return "Healthy";
     }
 }
